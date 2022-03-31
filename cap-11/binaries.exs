@@ -10,7 +10,7 @@ defmodule Binaries do
   # b = << 1::size(2), 1::size(3) >> # 01 001
   # <<9::size(5)>>
 
-  # Vamos terminar uma olhada inicial nos binários com um exemplo de extração de bits.
+  # Um exemplo de extração de bits.
   # Um float IEEE 754 tem:
   #  - 1 bit de sinal,
   #  - 11 bits de expoente
@@ -59,12 +59,8 @@ defmodule Binaries do
     |> IO.puts()
   end
 
-  defp _word_len(len1, len2) do
-    cond do
-      len1 > len2 -> len1
-      true -> len2
-    end
-  end
+  defp _word_len(len1, len2) when len1 > len2, do: len1
+  defp _word_len(_len1, len2), do: len2
 
   # Exercise 6:
 
